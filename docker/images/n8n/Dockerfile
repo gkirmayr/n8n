@@ -12,6 +12,8 @@ FROM n8nio/base:${NODE_VERSION} AS system-deps
 # STAGE 2: Application Artifact Processor
 # ==============================================================================
 FROM alpine:3.22.0 AS app-artifact-processor
+RUN pip install python-pptx
+RUN pip install pandas matplotlib
 
 COPY ./compiled /app/
 
